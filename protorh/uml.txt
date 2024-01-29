@@ -1,0 +1,80 @@
+
+<!-- saved from url=(0125)https://modules-api.etna-alternance.net/9474/activities/51330/download/TIC-API1/002/project/ProtoRH/public/ressources/uml.txt -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>+--------------------------------------+
+|             ProtoRH API             |
++--------------------------------------+
+| - Database : Postgresql             |
+| - Salt : string                     |
+| - SecretKey : string                |
+| - JWTSecretKey : string             |
+| - API Endpoints                     |
+|                                    |
+| +----------------------------------+
+| | - User                           |
+| +----------------------------------+
+| | - ID : int                       |
+| | - Email : string                 |
+| | - Password : string (hashed)     |
+| | - Firstname : string             |
+| | - Lastname : string              |
+| | - BirthdayDate : date            |
+| | - Address : string               |
+| | - PostalCode : string            |
+| | - Age : int                      |
+| | - Meta : JSON                    |
+| | - RegistrationDate : date        |
+| | - Token : string (hashed)        |
+| | - Role : string                  |
+| +----------------------------------+
+| | + Create()                       |
+| | + Update()                       |
+| | + UpdatePassword()               |
+| | + GetUser()                      |
+| | + UploadProfilePicture()         |
+| +----------------------------------+
+|
+| +----------------------------------+
+| | - Department                     |
+| +----------------------------------+
+| | - ID : int                       |
+| | - Name : string                  |
+| +----------------------------------+
+| | + AddUserToDepartment()          |
+| | + RemoveUserFromDepartment()     |
+| | + GetUsersInDepartment()         |
+| +----------------------------------+
+|
+| +----------------------------------+
+| | - RequestRH                      |
+| +----------------------------------+
+| | - ID : int                       |
+| | - UserID : int                   |
+| | - Content : string               |
+| | - RegistrationDate : date        |
+| | - Visibility : boolean           |
+| | - Close : boolean                |
+| | - LastAction : date              |
+| | - ContentHistory : JSON[]        |
+| +----------------------------------+
+| | + CreateRequestRH()              |
+| | + UpdateRequestRH()              |
+| | + RemoveRequestRH()              |
+| | + GetRequestRH()                 |
+| +----------------------------------+
+|
+| +----------------------------------+
+| | - Event                          |
+| +----------------------------------+
+| | - ID : int                       |
+| | - Name : string                  |
+| | - Date : date                    |
+| | - Description : string           |
+| | - UserID : int                   |
+| | - DepartmentID : int             |
+| +----------------------------------+
+| | + CreateEvent()                  |
+| | + GetEvent()                     |
+| | + RemoveEvent()                  |
+| +----------------------------------+
++--------------------------------------+
+</body></html>

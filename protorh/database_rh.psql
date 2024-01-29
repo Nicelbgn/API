@@ -1,0 +1,41 @@
+CREATE TABLE IF NOT EXISTS Users (
+    id SERIAL PRIMARY KEY,
+    Email VARCHAR(255),
+    Password VARCHAR(255),
+    Firstname VARCHAR(255),
+    Lastname VARCHAR(255),
+    BirthdayDate DATE,
+    Address VARCHAR(255),
+    PostalCode VARCHAR(255),
+    Age INT,
+    Meta JSON,
+    RegistrationDate DATE,
+    Token VARCHAR(255),
+    Role VARCHAR(255),
+    image_data BYTEA
+);
+
+CREATE TABLE IF NOT EXISTS Departments (
+    id SERIAL PRIMARY KEY,
+    Name VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS RequestRH (
+    id SERIAL PRIMARY KEY,
+    UserId INT REFERENCES Users(id),
+    Content VARCHAR(255),
+    RegistrationDate DATE,
+    Visibility BOOLEAN,
+    Close BOOLEAN,
+    LastAction DATE,
+    ContentHistory JSON[]
+);
+
+CREATE TABLE IF NOT EXISTS Events (
+    id SERIAL PRIMARY KEY,
+    Name VARCHAR(255),
+    Date DATE,
+    Description VARCHAR(255),
+    UserId INT REFERENCES Users(id),
+    DepartmentID INT REFERENCES Departments(id)
+);
